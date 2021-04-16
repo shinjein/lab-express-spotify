@@ -1,0 +1,17 @@
+<div class="col-md-4">
+    <div class="artist-card">
+        <div class="artist-card-image">
+            {{#if images.1.url}}
+            <img class="artist-img" src={{images.1.url}} alt={{name}} />
+            {{else}}
+            <img id="noimage" src="/images/no-image.jpeg"
+            alt="{{name}} photo">
+            {{/if}}
+        </div>
+        <div class="artist-card-description">
+            <h5 class="card-title">{{name}}</h5>
+            <a href ="/albums/{{id}}" class="to-album">View Artist's Albums</p>
+        </div>
+
+    </div>
+</div>
