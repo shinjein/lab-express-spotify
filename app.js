@@ -55,12 +55,12 @@ app.get('/albums/:artistId', async (req, res) => {
 app.get('/tracks/:albumId/', async (req,res) => {
   let albumId = req.params.albumId;
   let album = await spotifyApi.getAlbum(albumId);
-  let albumName = album.body;
+  let albumName = album.body.name;
+  let albumImage = album.body.images[0].url;
   let result = await spotifyApi.getAlbumTracks(albumId);
-    console.log(album);
   let tracks = result.body.items;
-  //console.log(tracks);
-  res.render('tracks', {tracks});
+  console.log(albumImage);
+  res.render('tracks', {tracks, albumName, albumImage});
 });
 
 

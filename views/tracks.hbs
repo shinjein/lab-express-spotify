@@ -1,6 +1,7 @@
 <div class="container">
-    <h1>Track List of {{name}} Search Result</h1>
-    <div class="row">
+    <h1>Track List of "<i>{{albumName}}</i>" by {{tracks.0.artists.0.name}}</h1>
+    <img class="track-album-img" src={{albumImage}} alt={{name}} />
+    <div class="column">
         {{#each tracks}}
         {{> eachTrack}}
         {{/each}}
