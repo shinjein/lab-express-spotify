@@ -54,12 +54,15 @@ app.get('/albums/:artistId', async (req, res) => {
 
 app.get('/tracks/:albumId/', async (req,res) => {
   let albumId = req.params.albumId;
+  let album = await spotifyApi.getAlbum(albumId);
+  let albumName = album.body;
   let result = await spotifyApi.getAlbumTracks(albumId);
-  //console.log(result);
+    console.log(album);
   let tracks = result.body.items;
-  console.log(tracks);
+  //console.log(tracks);
   res.render('tracks', {tracks});
 });
 
 
 app.listen(8080, () => console.log('My Spotify project running on port 8080 🎧 🥁 🎸 🔊'));
+
